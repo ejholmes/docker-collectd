@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run -v `pwd`/collectd.conf:/etc/collectd.conf remind101/collectd collectd -f
