@@ -1,5 +1,7 @@
 #!/bin/sh
 
-confd -verbose -node $ETCD -confdir /etc/confd
+set -e
+
+confd -verbose -node $ETCD -confdir /etc/confd &
 
 collectd -f
