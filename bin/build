@@ -1,3 +1,19 @@
-#!/bin/bash
+#!/bin/sh
 
-docker build -t remind101/collectd .
+set -e
+
+apt-get update
+apt-get -y install curl wget gzip make python collectd
+
+# Install librato-collectd
+cd /tmp
+curl -k -L https://github.com/librato/collectd-librato/archive/v0.0.10.tar.gz > collectd.tar.gz
+gzip -dc collectd.tar.gz | tar xvf -
+cd collectd-librato-0.0.10
+make install
+
+# Install confd
+cd /tmp
+wget -O confd_0.3.0_linux_amd64.tar.gz https://github.com/kelseyhightower/confd/releases/download/v0.3.0/confd_0.3.0_linux_amd64.tar.gz
+tar -zxvf confd_0.3.0_linux_amd64.tar.gz
+mv confd /usr/bin/confd

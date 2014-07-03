@@ -1,4 +1,9 @@
-FROM progrium/busybox
+FROM ubuntu:12.04
+MAINTAINER Eric Holmes <eric@ejholmes.io>
 
-RUN opkg-install collectd collectd-mod-cpu collectd-mod-df collectd-mod-disk collectd-mod-interface collectd-mod-load collectd-mod-memory collectd-mod-network collectd-mod-postgresql
-RUN mkdir -p /usr/lib/collectd
+ENV ETCD http://127.0.0.1:4001
+
+ADD ./bin/build /bin/build
+ADD ./bin/start /bin/start
+RUN /bin/build
+ADD ./confd /etc/confd

@@ -1,0 +1,7 @@
+[template]
+src = "librato.conf.tmpl"
+dest = "/etc/collectd/librato.conf"
+keys = [
+  "/librato/email",
+  "/librato/token",
+]
