@@ -1,0 +1,6 @@
+[template]
+src = "carbon.conf.tmpl"
+dest = "/etc/collectd/collect.d/carbon.conf"
+keys = [
+  "/carbon/host",
+]
