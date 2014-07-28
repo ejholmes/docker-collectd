@@ -8,7 +8,5 @@ ADD ./bin/start /bin/start
 RUN /bin/build
 ADD ./confd /etc/confd
 
-VOLUMN ["/etc/confd", "/etc/collectd"]
-
 ENTRYPOINT ["/bin/start"]
 CMD []

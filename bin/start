@@ -2,6 +2,6 @@
 
 set -e
 
-confd -verbose -node $ETCD -confdir /etc/confd &
+confd -onetime -verbose -node $ETCD -confdir /etc/confd &
 
 collectd -f

@@ -1,3 +1,4 @@
+{{ if .librato_email }}
 <Plugin "python">
   ModulePath "/usr/lib64/collectd/python"
   Import "collectd-librato"
@@ -6,3 +7,4 @@
     APIToken "{{ .librato_token }}"
   </Module>
 </Plugin>
+{{ end }}
