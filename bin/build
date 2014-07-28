@@ -2,8 +2,10 @@
 
 set -e
 
+export DEBIAN_FRONTEND=noninteractive
+
 apt-get update
-apt-get -y install curl wget gzip make python collectd
+apt-get -y install curl wget gzip make python collectd vim
 
 # Install librato-collectd
 cd /tmp
